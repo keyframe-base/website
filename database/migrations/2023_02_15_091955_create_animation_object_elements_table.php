@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('animations', function (Blueprint $table) {
+        Schema::create('animation_object_elements', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable(false);
+            $table->string('css_selector')->nullable(false);
+            $table->foreignId('animation_object_id')->nullable(false);
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('animations');
+        Schema::dropIfExists('animation_object_elements');
     }
 };

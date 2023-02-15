@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('animation_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable(false);
             $table->timestamps();
         });
     }

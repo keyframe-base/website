@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('animation_directions', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable(false);
+            $table->string('css_name')->nullable(false);
             $table->timestamps();
         });
     }

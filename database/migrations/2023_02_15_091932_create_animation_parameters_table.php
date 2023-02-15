@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('animation_parameters', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('parameter_id')->constrained();
+            $table->foreignId('animation_id')->constrained();
+            $table->double('value')->nullable(false);
             $table->timestamps();
         });
     }

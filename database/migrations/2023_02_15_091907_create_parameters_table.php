@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('parameters', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable(false);
+            $table->string('variable_name')->nullable(false);
+            $table->foreignId('parameter_type_id')->constrained();
+            $table->double('min_value')->nullable(false);
+            $table->double('max_value')->nullable(false);
             $table->timestamps();
         });
     }

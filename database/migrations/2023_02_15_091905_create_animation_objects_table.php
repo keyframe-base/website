@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parameter_types', function (Blueprint $table) {
+        Schema::create('animation_objects', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            $table->string('css_suffix')->nullable(false);
-            $table->boolean('whitespace_needed')->nullable(false)->default(false);
+            $table->string('icon')->nullable(false);
+            $table->text('description')->nullable(false);
+            $table->text('html')->nullable(false);
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('parameter_types');
+        Schema::dropIfExists('animation_objects');
     }
 };

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('cubic_bezier_functions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->double('x1')->nullable(false);
+            $table->double('y1')->nullable(false);
+            $table->double('x2')->nullable(false);
+            $table->double('y2')->nullable(false);
             $table->timestamps();
         });
     }
