@@ -1,0 +1,125 @@
+@import "../abstracts/mixins"
+
+
+
+
+$animation-card-width: 40vw
+$animation-card-margin-when-inside-the-landing-cover: 3em
+$animation-card-opacity-when-inside-the-landing-cover: 0.9
+$animation-card-object-container-background: $brand-black
+$animation-card-object-container-dot-color: transparentize($brand-white, 0.9)
+$animation-card-object-container-dot-size: 2px
+$animation-card-object-container-dot-space: 24px
+$animation-card-object-container-height: 6em
+$animation-card-title-font-weight: 700
+$animation-card-description-font-weight: 300
+$animation-card-title-font-size: 1em
+$animation-card-description-font-size: 0.8em
+$animation-card-description-opacity: 0.5
+$animation-card-the-best-of-the-month-label-background: transparentize($brand-primary, 0.80)
+$animation-card-the-best-of-the-month-label-color: $brand-primary
+$animation-card-the-best-of-the-month-font-size: 0.85em
+$animation-card-the-best-of-the-month-padding-x: 0.4em
+$animation-card-the-best-of-the-month-padding-y: 0.1em
+$animation-card-the-best-of-the-month-margin: 1em
+$animation-card-the-best-of-the-month-border-radius: 50rem
+$animation-card-text-padding-x: $base-block-padding-x
+$animation-card-text-padding-y: 1em
+
+.animation-card
+    width: $animation-card-width
+    @include hide-overflow
+    @include base-block($with-padding: false)
+    .animation-card-the-best-of-the-month-label
+        display: inline-block
+        background: $animation-card-the-best-of-the-month-label-background
+        color: $animation-card-the-best-of-the-month-label-color
+        font-size: $animation-card-the-best-of-the-month-font-size
+        padding: $animation-card-the-best-of-the-month-padding-y $animation-card-the-best-of-the-month-padding-x
+        margin-left: $animation-card-the-best-of-the-month-margin
+        border-radius: $animation-card-the-best-of-the-month-border-radius
+    @include when-inside(#landing-cover)
+        margin: $animation-card-margin-when-inside-the-landing-cover 0
+        opacity: $animation-card-opacity-when-inside-the-landing-cover
+    .animation-card-title-container
+        @include flex-center-vertically
+    .animation-card-text-container
+        display: flex
+        flex-direction: column
+        padding: $animation-card-text-padding-y $animation-card-text-padding-x
+    .animation-card-object-container
+        @include hide-overflow
+        @include flex-center
+        height: $animation-card-object-container-height
+        background: linear-gradient(90deg, $animation-card-object-container-background ($animation-card-object-container-dot-space - $animation-card-object-container-dot-size), transparent 1%) center, linear-gradient($animation-card-object-container-background ($animation-card-object-container-dot-space - $animation-card-object-container-dot-size), transparent 1%) center, $animation-card-object-container-dot-color
+        background-size: $animation-card-object-container-dot-space $animation-card-object-container-dot-space
+        & > span
+            font-size: 2em
+            font-weight: 1000
+            animation: turbo-glitch-fx-by-keyframe-base 2000ms infinite
+
+            /* Crafted in Keyframe Base: https://keyframebase.anafro.ru/animations/turbo-glitch-fx  */
+            @keyframes turbo-glitch-fx-by-keyframe-base
+                0%
+                    text-shadow: 0 0 0 cyan, 0 0 0 magenta
+
+                1%
+                    opacity: 1
+                    transform: translate(0, 0)
+                2%
+                    opacity: 0.7
+                    transform: translate(5px, 5px)
+                4%
+                    opacity: 1
+                    transform: translate(-5px, -5px)
+                6%
+                    opacity: 0.3
+                    transform: translate(0px, 0px)
+                8%
+                    opacity: 1
+
+                10%
+                    text-shadow: 0 0 0 cyan, 0 0 0 magenta
+                    transform: skewY(0)
+                13%
+                    text-shadow: -3px -3px 0 cyan, 6px 3px 0 magenta
+                    transform: skewY(2deg)
+                16%
+                    text-shadow: 0 0 0 cyan, 0 0 0 magenta
+                    transform: skewY(0)
+
+                19%
+                    transform: skewX(0)
+                    opacity: 1
+                21%
+                    transform: skewX(55deg) translateX(35px)
+                    opacity: 0.5
+                23%
+                    transform: skewX(0)
+                    opacity: 1
+
+                30%
+                    opacity: 1
+                31%
+                    opacity: 0.3
+                    transform: skewX(0deg)
+                35%
+                    opacity: 0.3
+                    transform: skewX(-75deg)
+                37%
+                    opacity: 1
+                    transform: skewX(0deg)
+                38%
+                    opacity: 0.4
+                40%
+                    opacity: 1
+
+                100%
+                    text-shadow: 0 0 0 cyan, 0 0 0 magenta
+    .animation-card-title
+        font-weight: $animation-card-title-font-weight
+        font-size: $animation-card-title-font-size
+    .animation-card-description
+        font-weight: $animation-card-description-font-weight
+        font-size: $animation-card-description-font-size
+        opacity: $animation-card-description-opacity

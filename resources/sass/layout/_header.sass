@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header.
+// -----------------------------------------------------------------------------
+
+@import '../abstracts/variables'
+@import '../abstracts/mixins'
+@import '../components/header-button'
+
+
+
+
+$header-height: 3.5em
+$header-transparency: 0.5
+$header-backdrop-blur-radius: 10px
+$header-side-space: 3em
+$header-border-bottom-thickness: 1px
+$header-border-bottom-color: transparentize($brand-white, 0.8)
+$header-space-between-button-groups: 3em
+
+
+header
+    @include flex-center-vertically
+    justify-content: space-between
+    position: absolute
+    height: $header-height
+    width: 100vw
+    background-color: transparentize($brand-black, $header-transparency)
+    backdrop-filter: blur($header-backdrop-blur-radius)
+    border-bottom: solid $header-border-bottom-thickness $header-border-bottom-color
+    #header-all-button-container
+        @include flex-center-vertically
+        gap: $header-space-between-button-groups
+        margin-right: $header-side-space
+        #header-button-container
+            @include flex-center-vertically
+            gap: $header-button-space-between

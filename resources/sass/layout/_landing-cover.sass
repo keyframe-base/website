@@ -1,0 +1,52 @@
+@import "../abstracts/mixins"
+@import "../abstracts/variables"
+
+
+
+//$landing-cover-background: linear-gradient(217deg, $brand-black, mix(transparentize($brand-orange, 0), $brand-black, 100%)), linear-gradient(127deg, $brand-black, mix($brand-orange, $brand-black, 50%))
+$landing-cover-background: url('/resources/img/landing-cover-background.jpg')
+$landing-cover-title-font-size: 3em
+$landing-cover-subtitle-font-size: 1em
+$landing-cover-title-font-weight: 1000
+$landing-cover-subtitle-font-weight: 300
+$landing-cover-subtitle-opacity: 0.8
+$landing-cover-scroll-down-icon-opacity: 0.4
+$landing-cover-scroll-down-icon-top-space: 0em
+$landing-cover-scroll-down-icon-floating-animation-distance: 0.5em
+$landing-cover-text-container-floating-x: 1em
+$landing-cover-text-container-floating-y: 0.75em
+$landing-cover-inset-shadow-color: transparentize($brand-primary, 0.80)
+$landing-cover-inset-shadow-radius: 0em
+
+@keyframes landing-cover-scroll-down-icon-floating
+    from
+        transform: translateY(0)
+    to
+        transform: translateY($landing-cover-scroll-down-icon-floating-animation-distance)
+
+
+#landing-cover
+    background: $landing-cover-background
+    @include flex-center
+    @include full-screen
+    flex-direction: column
+    box-shadow: 0 0 $landing-cover-inset-shadow-radius $landing-cover-inset-shadow-color inset
+    #landing-cover-text-container
+        @include flex-center
+        flex-direction: column
+    #landing-cover-title, #landing-cover-subtitle
+        text-align: center
+    #landing-cover-title
+        font-size: $landing-cover-title-font-size
+        font-weight: $landing-cover-title-font-weight
+        background: linear-gradient(to bottom, $brand-white 50%, mix($brand-primary, $brand-white, 45%) 80%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+    #landing-cover-subtitle
+        font-size: $landing-cover-subtitle-font-size
+        font-weight: $landing-cover-subtitle-font-weight
+        opacity: $landing-cover-subtitle-opacity
+    #landing-cover-scroll-down-icon
+        opacity: $landing-cover-scroll-down-icon-opacity
+        margin-top: $landing-cover-scroll-down-icon-top-space
+        animation: landing-cover-scroll-down-icon-floating 1s infinite ease-in-out alternate

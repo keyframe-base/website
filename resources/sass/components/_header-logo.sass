@@ -1,0 +1,24 @@
+@import '../abstracts/mixins'
+@import '../layout/header'
+
+
+
+
+$header-logo-url: '/assets/img/logo.svg'
+$header-logo-font-weight: 800
+$header-logo-image-size: 1.25em
+$header-logo-space-between-text-and-logo: 0.5em
+
+
+#header-logo
+    @include flex-center
+    margin-left: $header-side-space
+    #header-logo-image
+        width: $header-logo-image-size
+        margin-right: $header-logo-space-between-text-and-logo
+        height: auto
+        #header-logo-image-path
+            fill: $brand-primary
+    #header-logo-name
+        font-weight: $header-logo-font-weight
+        text-transform: lowercase
