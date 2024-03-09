@@ -1,0 +1,52 @@
+@import '../colors'
+@import '../complex/background'
+
+@keyframes kfb-tornado-flash-fx
+    from
+        opacity: 0
+        transform: translateX(-12em)
+    50%
+        transform: translateX(4em)
+    75%
+        transform: translateX(-1em)
+    to
+        opacity: 1
+        transform: translateX(0)
+
+.animation-card
+    display: flex
+    flex-direction: column
+    border: $gray 1px solid
+    border-radius: 1em
+    width: 20em
+    padding-block: 1em
+    padding-inline: 2em
+
+.animation-card-preview
+    height: 10em
+    overflow: hidden
+    @include dotted-background($background-color: $white, $dot-color: $gray, $dot-size: 2px, $dot-gap: 24px)
+    @include flex-center()
+
+.animation-element
+    width: 3em
+    aspect-ratio: 1 / 1
+    border-radius: 0.25em
+    background: $blue
+    animation: kfb-tornado-flash-fx ease-in-out forwards 500ms
+
+.animation-name
+    margin: 0
+
+.animation-description
+    margin: 0
+
+.animation-footer
+    display: flex
+    flex-direction: column
+
+.animation-card-link
+    margin-top: 1em
+
+#cta-preview-animation
+    box-shadow: 1em 1em 2em transparentize($blue, 0.90)

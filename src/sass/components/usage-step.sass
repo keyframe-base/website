@@ -1,0 +1,35 @@
+@import '../flex'
+@import '../colors'
+
+#usage-steps
+    @include flex-center($gap: 2em)
+
+.usage-step
+    @include flex-center()
+    flex-direction: column
+    position: relative
+    width: 24em
+
+.usage-step-number
+    position: absolute
+    left: 0
+    top: 0
+    background: $blue
+    color: $white
+    width: 1.5em
+    height: 1.5em
+    line-height: 1.5em
+    border-radius: 50rem
+    text-align: center
+    font-weight: 1000
+
+.usage-step-title
+    margin: 0
+    color: $blue
+    font-weight: 1000
+
+.usage-step-subtitle
+    text-align: center
+
+.usage-step-illustration
+    height: 12em

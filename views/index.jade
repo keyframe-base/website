@@ -1,0 +1,104 @@
+extends layout
+
+
+include components/animation-card
+include components/usage-step
+include components/qna
+
+
+block head
+  script(src="/javascripts/index.js", defer)
+
+
+block header
+  button#header-button Explore animations
+  a#github-link
+    img#github-link-icon(src="/images/github.svg")
+
+
+block content
+  main
+    article#cta-screen
+      section#cta-text
+        h1 No more struggling with animations!
+        p Use our wide collection of 219 CSS animations. Each of them are customizable and ready-to-use!
+
+        #cta-text-buttons
+          button#cta-explore-animations-button Start exploring animations
+          button#cta-watch-tutorial-button Watch the tutorial
+        
+      section#cta-preview
+        img.cta-preview-spark(src="/images/spark.svg")
+        img.cta-preview-spark(src="/images/spark.svg")
+        p#cta-preview-tip Editable properties!
+        img#cta-preview-arrow(src="/images/arrow.svg")
+        +animation-card('Tornado Flash FX', 'When you feel the speed of life')#cta-preview-animation
+
+    article#usage-steps-screen
+      h2 Animations've never been easier!
+      section#usage-steps
+        +usage-step(1, 'Find an animation you like', 'We’ve got a lot of animation, so we promise at least one of them will melt your heart!')
+        +usage-step(2, 'Customize it to make it perfect for you', 'If you liked the animation, but you think it needs some polishing, just use sliders to adjust everything you want!')
+        +usage-step(3, 'Copy HTML and CSS', 'You are ready to go! Just copy HTML and styles and paste it to your awesome project!')
+      button#usage-steps-button Open the catalog of animations
+      
+    article#examples-screen
+      h2 Examples? Here you go!
+      section#examples
+        +animation-card('Blue Lava', 'It’s so charming and beautiful')
+        +animation-card('Hypertitanium', 'Made out of bronze in 1952')
+        +animation-card('Blueberry Straw 2.0', 'Look, there are so many berries!')
+      button#examples-button See all animations
+
+    article#faq-screen
+      h2 FAQ
+      #qnas
+        +qna('Is it free?')
+          | Keyframe Base is totally free to use! Have fun exploring animations and playing with customization!
+        +qna('Do animations have a license?')
+          | No, but I’d be glad if you leave a link to my website, it would be a big boost for me as a programmer!
+        +qna('Do you plan to add Sass/SCSS/Stylus support?')
+          | Hell yea! I’m going to add the support for these CSS-preprocessors in the future! Stay tuned!
+        +qna('Can I send my animation to this website?')
+          | Oh, sure! I would be happy to receive your animations and add them to Keyframe Base! Just contact me: contact@anafro.ru
+        +qna('How can I support the website?')
+          | I am from Russia, so I can’t receive donations from you, guys, but you can leave a star on GitHub or tell about the service in your social profiles :)
+        +qna('I’m an employer, can I hire you?')
+          | Keyframe Base is a part of my portfolio. If you want to hire me, please, check out my personal website to check whether I can be hired or not! Thanks!
+        
+  footer
+    #footer-logo
+      img#footer-logo-image(src="/images/logo.svg")
+      span#footer-logo-name keyframe base
+
+    section#footer-link-columns
+      .footer-link-column 
+        h3.footer-links-title Featured
+        a.footer-link Best of the month
+
+      .footer-link-column
+        h3.footer-links-title Animations
+        a.footer-link For texts
+        a.footer-link For notifications
+        a.footer-link For blocks
+        a.footer-link For checkboxes
+        a.footer-link For radio buttons
+        a.footer-link For buttons
+
+      .footer-link-column
+        h3.footer-links-title Contacts
+        a.footer-link Personal website
+        a.footer-link Email
+        a.footer-link GitHub
+        a.footer-link VK
+        a.footer-link My portfolio
+
+      .footer-link-column
+        h3.footer-links-title Misc
+        a.footer-link About Keyframe Base
+
+    section#copyright-text
+      p.copyright-line © Keyframe Base 2023. All rights reserved.
+      p.copyright-line Made with love by Anatoly Frolov. Contact me via contact@anafro.ru
+
+    img#smile-face(src="/images/illustrations/smile-face.svg")

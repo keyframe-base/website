@@ -1,0 +1,38 @@
+$min-scale: 0.8
+$max-scale: 1.1
+$rotation: 2deg
+
+@keyframes shooting-star
+    from
+        transform: scaleX($min-scale) scaleY($max-scale) rotate($rotation)
+
+    to
+        transform: scaleX($max-scale) scaleY($min-scale) rotate(-$rotation)
+
+@keyframes arrow-rotation
+    from
+        opacity: 0
+        transform: rotate(-20deg) scale(0.95)
+    50%
+        opacity: 1
+        transform: rotate(5deg) scale(1.05)
+    to
+        opacity: 1
+        transform: rotate(0) scale(1)
+
+@keyframes tip-rotation
+    from
+        opacity: 0
+        transform: rotate(-5deg) scale(0.95)
+    50%
+        opacity: 1
+        transform: rotate(20deg) scale(1.05)
+    to
+        opacity: 1
+        transform: rotate(15deg) scale(1)
+
+@keyframes animation-card-floating
+    from
+        transform: translateY(-1vh)
+    to
+        transform: translateY(1vh)

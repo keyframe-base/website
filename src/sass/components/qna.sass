@@ -1,0 +1,33 @@
+@import '../colors'
+@import '../flex'
+
+$gap: 1em
+$icon-width: 1.5em
+
+.qna
+    @include flex($gap: 0.5em)
+    flex-direction: column
+    width: 30vw
+
+.qna-header
+    @include flex($gap: $gap)
+    align-items: center
+
+.qna-question
+    margin: 0
+
+.qna-icon
+    color: $blue
+    background: transparentize($blue, .90)
+    width: $icon-width
+    aspect-ratio: 1 / 1
+    line-height: 1.5em
+    text-align: center
+    border-radius: 0.5em
+    font-weight: 700
+
+.qna-answer
+    margin: 0
+    margin-left: $icon-width / 2
+    padding-left: $gap + $icon-width / 2
+    border-left: $blue 2px solid

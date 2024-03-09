@@ -1,0 +1,13 @@
+extends layout
+
+
+block head
+    script(src="/javascripts/not-found.js", defer)
+
+
+block content
+    main
+        article#not-found
+            h1#not-found-title 404
+            p#not-found-subtitle We can't find the page you are looking for
+            button#not-found-back-button Back

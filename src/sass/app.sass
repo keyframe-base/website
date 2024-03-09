@@ -1,0 +1,186 @@
+@import 'base'
+@import 'fonts'
+@import 'colors'
+@import 'flex'
+@import 'grid'
+@import 'properties'
+@import 'animations'
+@import 'elements/button'
+@import 'elements/link'
+@import 'elements/dialog'
+@import 'components/animation-card'
+@import 'components/usage-step'
+@import 'components/qna'
+@import 'pages/editor'
+
+*
+    font-family: Inter, Verdana, Geneva, Tahoma, sans-serif
+
+header
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    position: fixed
+    left: 0
+    right: 0
+    top: 0
+    background: $white
+    padding-block: 1em
+    padding-inline: $index-padding-inline
+    z-index: 10
+
+#logo
+    margin-right: auto
+
+#logo-image
+    width: 1em
+
+#logo-name
+    font-weight: 700
+    margin-left: 0.5em
+
+#github-link-icon
+    width: 1.5em
+
+#header-buttons
+    @include flex-center($gap: 2em)
+
+main
+    top: 0
+    left: 0
+    right: 0
+    padding-inline: $index-padding-inline
+
+article
+    max-width: 100vw
+    height: 100vh
+    @include flex-center()
+
+#cta-text
+    width: 40%
+
+#cta-preview
+    @include flex-center
+    width: 60%
+
+#cta-preview-tip
+    position: absolute
+    top: 14vh
+    right: 12vw
+    font-family: Caveat, sans-serif
+    font-size: 1.5em
+    color: $blue
+    font-weight: 1000
+    animation: tip-rotation 300ms forwards ease-in-out
+
+#cta-preview-arrow
+    position: absolute
+    top: 15vh
+    right: 10vw
+    width: 6em
+    animation: arrow-rotation 300ms forwards ease-in-out
+
+#cta-text-buttons
+    @include flex($gap: 1em)
+
+#cta-watch-tutorial-button
+    @include button-styles('secondary')
+
+.cta-preview-spark
+    position: absolute
+    &:nth-child(1)
+        right: 12vw
+        top: 38vh
+        width: 2em
+        animation: shooting-star 500ms alternate infinite ease-in-out
+    &:nth-child(2)
+        right: 48vw
+        top: 70vh
+        width: 1em
+        animation: shooting-star 420ms alternate infinite ease-in-out
+
+#cta-preview-animation
+    animation: animation-card-floating 2000ms ease-in-out alternate infinite
+
+#usage-steps-screen
+    gap: 2em
+    flex-direction: column
+
+#examples-screen
+    @include flex-center($gap: 2em)
+    flex-direction: column
+
+#examples
+    @include flex-center($gap: 2em)
+
+#faq-screen
+    row-gap: 2em
+    flex-direction: column
+
+#qnas
+    @include grid($rows: 3, $columns: 2, $gap: 2em)
+
+h1, h2
+    margin: 0
+    font-size: 2.5em
+    font-weight: 1000
+    line-height: 1em
+
+footer
+    display: flex
+    position: relative
+    flex-direction: column
+    justify-content: space-between
+    max-width: 100vw
+    height: 50vh
+    padding-block: 2em
+    padding-inline: $index-padding-inline
+    background: $black
+
+#footer-logo
+    @include flex($gap: 1em)
+    align-items: center
+
+#footer-logo-image
+    width: 1em
+    aspect-ratio: 1 / 1
+
+#footer-logo-name
+    font-weight: 600
+    color: $white
+
+#footer-link-columns
+    @include grid($rows: 1, $columns: 4, $gap: 4em)
+
+.footer-link-column
+    display: flex
+    flex-direction: column
+
+.footer-links-title
+    color: $white
+    font-weight: 500
+    text-transform: uppercase
+    margin-bottom: 1em
+
+.footer-link
+    color: $fog
+
+#copyright-text
+    color: $coal
+
+.copyright-line
+    margin: 0
+
+#smile-face
+    position: absolute
+    bottom: 15vh
+    right: 10vw
+    width: 8em
+
+#not-found
+    @include flex-center()
+    flex-direction: column
+
+#not-found-title
+    font-size: 6em
+    color: $blue

@@ -1,0 +1,64 @@
+extends editor-layout
+
+
+block head
+    script(src="/javascripts/studio.js", defer)
+
+
+block header
+    button#header-discard-button Discard and quit
+    button#header-save-button Publish
+
+
+block sidebar
+    dialog#create-property-dialog
+        
+
+    #sidebar-header
+        h1#sidebar-animation-name Rocket Jump
+        p#sidebar-animation-description Jump right to the moon!
+
+    #sidebar-sections
+        .sidebar-section
+            .sidebar-section-header
+                img.sidebar-section-icon(src="/images/icons/properties.svg")
+                span.sidebar-section-title Properties
+
+            .sidebar-section-properties
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+
+            button.sidebar-section-add-property Add property
+        
+        .sidebar-section
+            .sidebar-section-header
+                img.sidebar-section-icon(src="/images/icons/keyframe.svg")
+                span.sidebar-section-title Slow Down
+
+            .sidebar-section-properties
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+                .sidebar-section-property
+                    span.sidebar-section-property-name Easing Function
+                    a.sidebar-section-property-value Sq. Ease-Out
+
+            button.sidebar-section-add-property Add a property
+        
+        button.sidebar-section-add-keyframe Add a keyframe

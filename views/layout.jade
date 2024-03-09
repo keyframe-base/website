@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/app.css')
+    script(src="/javascripts/libs/html.js")
+    script(src="/javascripts/libs/redirect.js")
+    block head
+  body
+    header
+      #logo
+        img#logo-image(src="/images/logo.svg")
+        span#logo-name keyframe base
+      #header-buttons
+        block header
+    block content

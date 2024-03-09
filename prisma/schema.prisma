@@ -1,0 +1,66 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model CubicBezierFunction {
+    id        Int        @id @default(autoincrement())
+    name      String     @unique
+    x1        Float
+    y1        Float
+    x2        Float
+    y2        Float
+    keyframes Keyframe[]
+
+    @@map("cubic_bezier_functions")
+}
+
+model AnimationDirection {
+    id       Int    @id @default(autoincrement())
+    name     String @unique
+    cssValue String @unique @map("css_value")
+
+    @@map("animation_directions")
+}
+
+model ParameterType {
+    id         Int         @id @default(autoincrement())
+    name       String      @unique
+    cssSuffix  String      @unique @map("css_suffix")
+    parameters Parameter[]
+
+    @@map("parameter_types")
+}
+
+model Animation {
+    id          Int         @id @default(autoincrement())
+    name        String      @unique
+    description String
+    parameters  Parameter[]
+    keyframes   Keyframe[]
+}
+
+model Parameter {
+    id              Int           @id @default(autoincrement())
+    parameterType   ParameterType @relation(fields: [parameterTypeId], references: [id])
+    parameterTypeId Int           @map("parameter_type_id")
+    animation       Animation     @relation(fields: [animationId], references: [id])
+    animationId     Int           @map("animation_id")
+    name            String        @unique
+    variableName    String        @unique
+    presetValue     Float         @map("preset_value")
+    minValue        Float         @map("min_value")
+    maxValue        Float         @map("max_value")
+}
+
+model Keyframe {
+    id                    Int                 @id @default(autoincrement())
+    animation             Animation           @relation(fields: [animationId], references: [id])
+    animationId           Int                 @map("animation_id")
+    cubicBezierFunction   CubicBezierFunction @relation(fields: [cubicBezierFunctionId], references: [id])
+    cubicBezierFunctionId Int                 @map("cubic_bezier_function_id")
+}

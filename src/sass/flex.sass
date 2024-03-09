@@ -1,0 +1,8 @@
+@mixin flex($gap: 0)
+    display: flex
+    gap: $gap
+
+@mixin flex-center($gap: 0)
+    @include flex($gap)
+    align-items: center
+    justify-content: center

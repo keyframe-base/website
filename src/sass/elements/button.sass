@@ -1,0 +1,37 @@
+@import "../colors"
+
+@mixin button-base()
+    all: unset
+    cursor: pointer
+    padding-block: 0.33em
+    padding-inline: 1em
+    border-radius: 0.25em
+    transition: 200ms
+    &:disabled
+        cursor: not-allowed
+        background: $gray
+        color: $fog
+
+@mixin button-style($background, $color, $hover-background: lighten($background, 5%), $border-color: transparent)
+    @include button-base()
+    box-sizing: border-box
+    background: $background
+    color: $color
+    border: $border-color 1px solid
+    &:hover
+        background: $hover-background
+
+@mixin button-styles($theme: 'primary')
+    @if $theme == 'primary'
+        @include button-style($blue, $white)
+    @else if $theme == 'secondary'
+        @include button-style($white, $coal, $gray, $coal)
+    @else if $theme == 'optional'
+        @include button-style(transparent, $graphite)
+    @else if $theme == 'action'
+        @include button-style(transparent, $blue)
+    @else
+        @error "Unknown button styles #{$theme}"
+
+button
+    @include button-styles()
